@@ -14,8 +14,14 @@ var config = {
 
   document.getElementById('batteryLevel').innerHTML = "Battery Level: test";
 
+  var starCountRef = firebase.database().ref('battery/level/');
+  starCountRef.on('value', function(snapshot) {
+    document.getElementById('batteryLevel').innerHTML = "Battery Level: " + snapshot.val().level;
+    console.log(123);
+  });
+
   function readData(){
-    database.ref('battery/').once('value').then(function(snapshot){
+    database.ref('battery/level/').once('value').then(function(snapshot){
         document.getElementById('batteryLevel').innerHTML = "Battery Level: " + snapshot.val().level;
     })
   }
