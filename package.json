@@ -1,0 +1,22 @@
+{
+  "name": "phone_status_desktop",
+  "version": "1.0.0",
+  "description": "Phone Status Desktop Application",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron ."
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/BalioFVFX/Phone-Status-Desktop.git"
+  },
+  "author": "BalioFVFX",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/BalioFVFX/Phone-Status-Desktop/issues"
+  },
+  "homepage": "https://github.com/BalioFVFX/Phone-Status-Desktop#readme",
+  "dependencies": {
+    "electron": "^1.7.10"
+  }
+}
