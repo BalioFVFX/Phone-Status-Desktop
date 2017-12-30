@@ -2,10 +2,12 @@ body{
     margin:0;
     background-color:#384147;
 }
-#batteryLevel{
+h1{
     text-align: center;
     color:#fc8a00;
 }
+
+
 
 .topnav{
     overflow: hidden;

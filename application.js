@@ -11,11 +11,14 @@ var config = {
   var database = firebase.database();
 
 
-
-  document.getElementById('batteryLevel').innerHTML = "Battery Level: test";
-
-  var starCountRef = firebase.database().ref('users/baliofvfx/batterylevel');
+  var starCountRef = firebase.database().ref('users/baliofvfx/');
   starCountRef.on('value', function(snapshot) {
-    document.getElementById('batteryLevel').innerHTML = "Battery Level: " + snapshot.val().level;
-    console.log(123);
+    if(document.getElementById('batteryLevel') != null){
+      document.getElementById('batteryLevel').innerHTML = "Battery Level: " + snapshot.val().batterylevel.level + "%";
+    }
+    else if(document.getElementById('batteryTemperature') != null){
+      document.getElementById('batteryTemperature').innerHTML = "Battery Temperature: " + snapshot.val().batterytemp.temperature + "&#8451;";
+    }
+   
+    
   });
