@@ -1,7 +1,28 @@
 body{
+    margin:0;
     background-color:#384147;
 }
 #batteryLevel{
     text-align: center;
     color:#fc8a00;
 }
+
+.topnav{
+    overflow: hidden;
+    background-color: #333;
+}
+
+.topnav a{
+    float: left;
+    color: #f2f2f2;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration:none;
+    font-size: 17px;
+}
+
+.topnav a:hover{
+    background-color: orange;
+    color:black;
+}
+
