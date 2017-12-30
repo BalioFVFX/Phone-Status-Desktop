@@ -7,6 +7,31 @@ h1{
     color:#fc8a00;
 }
 
+#particles-js{
+    
+    width:150px;
+    height:324px;
+    position: relative;
+    padding-top:51px;
+    margin-left:125px;
+
+    
+
+    
+}
+#myDiv{
+    position:relative;
+    margin: 0 auto;
+    width:410px;
+    top:0px;
+}
+img{
+    width:400px;
+    height:400px;
+    position: absolute;
+    margin: 0px auto;
+}
+
 
 
 .topnav{

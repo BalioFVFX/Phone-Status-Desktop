@@ -1,0 +1,16 @@
+{
+    "particles": {
+      "number": {
+        "value": 820
+      },
+      "color": {
+        "value": "ffffff"
+      },
+      "size":{
+          "value":4
+      }
+      
+    }
+    
+}
+

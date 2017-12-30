@@ -10,7 +10,25 @@
         <a href="temperatures.html">Temperatures</a>
         <a href="stats.html">Stats</a>
     </div>
-    <h1 id="batteryLevel"> Battery Level: </h1>
+
+    
+
+    <div id = "myDiv"> 
+        <img src="battery.png">
+        <div id="particles-js"> </div>
+                
+</div>
+
+<h1 id="batteryLevel"> Battery Level: </h1>
+        
+
+</div>
     <script src="https://www.gstatic.com/firebasejs/4.8.1/firebase.js"></script>
     <script src="application.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
+    <script>
+    particlesJS.load('particles-js', 'particles.json', function() {
+     console.log('callback - particles.js config loaded');
+});
+    </script>
 </body>
