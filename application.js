@@ -19,9 +19,3 @@ var config = {
     document.getElementById('batteryLevel').innerHTML = "Battery Level: " + snapshot.val().level;
     console.log(123);
   });
-
-  function readData(){
-    database.ref('battery/level/').once('value').then(function(snapshot){
-        document.getElementById('batteryLevel').innerHTML = "Battery Level: " + snapshot.val().level;
-    })
-  }
