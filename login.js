@@ -1,30 +1,34 @@
-var provider = new firebase.auth.GoogleAuthProvider();
+function login(){
 
-provider.addScope('https://www.googleapis.com/auth/contacts.readonly');
+      // Initialize Firebase
+      var config = {
+        apiKey: "AIzaSyBw8GMjN-xcDmCtDiO6LcK7gNwsjWWF0ak",
+        authDomain: "phone-status-desktop.firebaseapp.com",
+        databaseURL: "https://phone-status-desktop.firebaseio.com",
+        projectId: "phone-status-desktop",
+        storageBucket: "phone-status-desktop.appspot.com",
+        messagingSenderId: "404407908944"
+      };
+      firebase.initializeApp(config);
+      
+        var database = firebase.database();
+        return firebase.database().ref('users/' + document.getElementById('username').value).once('value').then(function(snapshot){
+          var thepass = (snapshot.val().password.pass);
+          document.getElementById('loginText').innerHTML = thepass;
+          if(thepass == document.getElementById('password').value){
+            
+            var fs = require('fs');
+            fs.writeFile("username.js", "var currentUsername = " + "'" + document.getElementById('username').value + "'", function(err) {
+                if(err) {
+                    return console.log(err);
+                }
+            
+                console.log("The file was saved!");
+            }); 
 
-firebase.auth().languageCode = 'pt';
-// To apply the default browser preference instead of explicitly setting it.
-// firebase.auth().useDeviceLanguage();
-
-provider.setCustomParameters({
-    'login_hint': 'user@example.com'
-  });
-
-firebase.auth().signInWithRedirect(provider).then(function(result) {
-    // This gives you a Google Access Token. You can use it to access the Google API.
-    var token = result.credential.accessToken;
-    // The signed-in user info.
-    var user = result.user;
-    // ...
-  }).catch(function(error) {
-    // Handle Errors here.
-    var errorCode = error.code;
-    var errorMessage = error.message;
-    // The email of the user's account used.
-    var email = error.email;
-    // The firebase.auth.AuthCredential type that was used.
-    var credential = error.credential;
-    // ...
-  });
-
-  firebase.auth().signInWithRedirect(provider);
+            window.location.replace('batteryLevel.html')
+          }
+        });
+       
+  
+      }

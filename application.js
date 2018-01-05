@@ -11,7 +11,7 @@ var config = {
   var database = firebase.database();
 
 
-  var starCountRef = firebase.database().ref('users/baliofvfx/');
+  var starCountRef = firebase.database().ref('users/' + currentUsername + "/");
   starCountRef.on('value', function(snapshot) {
     if(document.getElementById('batteryLevel') != null){
       document.getElementById('batteryLevel').innerHTML = "Battery Level: " + snapshot.val().batterylevel.level + "%";
