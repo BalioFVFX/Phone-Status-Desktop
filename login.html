@@ -1,20 +1,31 @@
 <!DOCTYPE html>
 <head>
-      
+  <link rel="stylesheet" type="text/css" href="loginstyles.css">
 </head>
 
 <body>
 
   <h1 id="screenTitle">Login</h1>
+  <div id="container">
 
-<form> 
-  Username:<br>
-  <input id="username" type="text" username="user"><br>
-  Password:<br>
-  <input id="password" type="text" password"pass"><br>
-  <button onclick="login()">Login</button>
+    <div id="particles-js"> </div>
 
-</form>
+    <div id="loginDiv">
+      <form> 
+        <p id="loginText">Username:</p> 
+        <input id="username" type="text" username="user"><br>
+        <p id="loginText">Password:</p> 
+        <input id="password" type="text" password"pass">
+        <br>
+        <br>
+        <br>
+        <button id="loginButton" onclick="login()">Login</button>
+      
+      </form>
+    </div>
+  </div>
+
+
 
   <script src="https://www.gstatic.com/firebasejs/4.8.1/firebase.js"></script>
   <script>
@@ -38,5 +49,12 @@
 
     }
   </script>
+
+<script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
+<script>
+particlesJS.load('particles-js', 'particles-login.json', function() {
+ console.log('callback - particles.js config loaded');
+});
+</script>
   
 </body>
