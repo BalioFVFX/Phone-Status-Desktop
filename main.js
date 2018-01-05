@@ -8,7 +8,7 @@ function createWindow(){
 
   // Create the browser window
 
-  win = new BrowserWindow({})
+  win = new BrowserWindow({width: 500, height: 600})
 
   // Load the url
 
