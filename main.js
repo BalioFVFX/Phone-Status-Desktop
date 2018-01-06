@@ -13,7 +13,7 @@ function createWindow(){
   // Load the url
 
   win.loadURL(url.format({
-    pathname: path.join(__dirname, 'batterylevel.html'),
+    pathname: path.join(__dirname, 'login.html'),
     protocol: 'file:'
   }))
 }
