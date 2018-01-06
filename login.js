@@ -14,7 +14,6 @@ function login(){
         var database = firebase.database();
         return firebase.database().ref('users/' + document.getElementById('username').value).once('value').then(function(snapshot){
           var thepass = (snapshot.val().password.pass);
-          document.getElementById('loginText').innerHTML = thepass;
           if(thepass == document.getElementById('password').value){
             
             var fs = require('fs');
