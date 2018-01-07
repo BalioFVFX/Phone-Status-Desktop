@@ -14,10 +14,10 @@ var config = {
   var starCountRef = firebase.database().ref('users/' + currentUsername + "/");
   starCountRef.on('value', function(snapshot) {
     if(document.getElementById('batteryLevel') != null){
-      document.getElementById('batteryLevel').innerHTML = "Battery Level: " + snapshot.val().batterylevel.level + "%";
+      document.getElementById('batteryLevel').innerHTML = "Battery Level: " + snapshot.val().batterystatus.level + "%";
     }
     else if(document.getElementById('batteryTemperature') != null){
-      document.getElementById('batteryTemperature').innerHTML = "Battery Temperature: " + snapshot.val().batterytemp.temperature + "&#8451;";
+      document.getElementById('batteryTemperature').innerHTML = "Battery Temperature: " + snapshot.val().batterystatus.temperature + "&#8451;";
     }
    
     
