@@ -1,0 +1,38 @@
+body{
+    margin:0;
+    background-color:#384147;
+}
+
+
+.topnav{
+    overflow: hidden;
+    background-color: #333;
+}
+.topnav a{
+    float: left;
+    color: #f2f2f2;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration:none;
+    font-size: 17px;
+}
+
+.topnav a:hover{
+    background-color: orange;
+    color:black;
+}
+
+
+#batteryTemp{
+    width:200px;
+    height:200px;
+    display: block;
+    margin-top:5%;
+    margin-left:auto;
+    margin-right:auto;
+}
+
+h1{
+    color:#fc8a00;
+    text-align:center;
+}
