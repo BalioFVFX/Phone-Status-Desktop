@@ -10,24 +10,28 @@ function login(){
         messagingSenderId: "404407908944"
       };
       firebase.initializeApp(config);
-      
-        var database = firebase.database();
-        return firebase.database().ref('users/' + document.getElementById('username').value).once('value').then(function(snapshot){
-          var thepass = (snapshot.val().password.pass);
-          if(thepass == document.getElementById('password').value){
-            
-            var fs = require('fs');
-            fs.writeFile("username.js", "var currentUsername = " + "'" + document.getElementById('username').value + "'", function(err) {
-                if(err) {
-                    return console.log(err);
-                }
-            
-                console.log("The file was saved!");
-            }); 
 
-            window.location.replace('batteryLevel.html')
-          }
-        });
+      var email = document.getElementById('email').value;
+      var password = document.getElementById('password').value;
+      
+      firebase.auth().signInWithEmailAndPassword(email, password).catch(function(error) {
+        // Handle Errors here.
+        var errorCode = error.code;
+        var errorMessage = error.message;
+        console.log(errorCode);
+        console.log(errorMessage);
+        // ...
+      }
+  );
+
+  firebase.auth().onAuthStateChanged(function(user) {
+    if (user) {
+      console.log('Success');
+      window.location.assign("batterylevel.html")
+    } else {
+      console.log('Error');
+    }
+  });
        
-  
+        
       }
