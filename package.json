@@ -4,7 +4,7 @@
   "description": "Phone Status Desktop Application",
   "main": "main.js",
   "scripts": {
-    "start": "electron ."
+    "start": "electron .","package-win": "electron-packager . PhoneStatus --overwrite --asar=true --platform=win32 --arch=ia32 --icon=assets/icons/win/icon.ico --prune=true --out=release-builds --version-string.CompanyName=CE --version-string.FileDescription=CE --version-string.ProductName=\"PhoneStatus\""
   },
   "repository": {
     "type": "git",
@@ -18,5 +18,8 @@
   "homepage": "https://github.com/BalioFVFX/Phone-Status-Desktop#readme",
   "dependencies": {
     "electron": "^1.7.10"
+  },
+  "devDependencies": {
+    "electron-packager": "^11.0.1"
   }
 }

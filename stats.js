@@ -8,7 +8,7 @@
         var chargingStatusImage = document.getElementById('chargingStatusImage');
     
         if(doc.data()["Wi-Fi"] != '<unknown ssid>'){
-            document.getElementById('WiFiStatus').innerHTML = "Status: Connected - " + snapshot.val().wifiName;
+            document.getElementById('WiFiStatus').innerHTML = "Status: Connected - " + doc.data()["Wi-Fi"];
         }
         else{
             document.getElementById('WiFiStatus').innerHTML = "Status: Disconnected";

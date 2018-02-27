@@ -41,7 +41,7 @@ firebase.auth().onAuthStateChanged(function(user) {
      
      
       else if(document.getElementById('batteryTemperature') != null){
-        document.getElementById('batteryTemperature').innerHTML = "Battery Temperature: " + doc.data()["Battery temperature"] + "&#8451;";
+        document.getElementById('batteryTemperature').innerHTML = "Battery Temperature: " + doc.data()["Battery temperature"].toFixed(2) + "&#8451;";
       }
      
       
