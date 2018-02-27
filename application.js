@@ -1,14 +1,21 @@
 firebase.auth().onAuthStateChanged(function(user) {
   if (user) {
     var starCountRef = firebase.database().ref('users/' + user.uid + "/");
-    starCountRef.on('value', function(snapshot) {
+
+    db.collection("users").doc(user.uid)
+    .onSnapshot(function(doc) {
+        console.log("Current data: ", doc.data());
+
+   
+
+
       var chargingStatusImage = document.getElementById('chargingStatusImage');
   
      
       if(document.getElementById('batteryLevel') != null){
-        document.getElementById('batteryLevel').innerHTML = "Battery Level: " + snapshot.val().batterystatus.batterylevel + "%";
-        if(snapshot.val().batterystatus.isCharging == true){
-          if(snapshot.val().batterystatus.acCharge == true){
+        document.getElementById('batteryLevel').innerHTML = "Battery Level: " + doc.data()["Battery level"] + "%";
+        if(doc.data()["Is charging"] == true){
+          if(doc.data()["AC charge"] == true){
               document.getElementById('isCharging').innerHTML = "Battery Status: Charging - Ac Charger"
               document.getElementById('chargingStatusImage').src = "plug.png";
               chargingStatusImage.style.width = '35px';
@@ -34,7 +41,7 @@ firebase.auth().onAuthStateChanged(function(user) {
      
      
       else if(document.getElementById('batteryTemperature') != null){
-        document.getElementById('batteryTemperature').innerHTML = "Battery Temperature: " + snapshot.val().batterystatus.batterytemp + "&#8451;";
+        document.getElementById('batteryTemperature').innerHTML = "Battery Temperature: " + doc.data()["Battery temperature"] + "&#8451;";
       }
      
       

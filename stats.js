@@ -1,10 +1,13 @@
   firebase.auth().onAuthStateChanged(function(user) {
     if (user) {
-      var starCountRef = firebase.database().ref('users/' + user.uid + "/networkstatus");
-      starCountRef.on('value', function(snapshot) {
+      
+      db.collection("users").doc(user.uid)
+      .onSnapshot(function(doc) {
+          console.log("Current data: ", doc.data());
+
         var chargingStatusImage = document.getElementById('chargingStatusImage');
     
-        if(snapshot.val().wifiName != '<unknown ssid>'){
+        if(doc.data()["Wi-Fi"] != '<unknown ssid>'){
             document.getElementById('WiFiStatus').innerHTML = "Status: Connected - " + snapshot.val().wifiName;
         }
         else{
