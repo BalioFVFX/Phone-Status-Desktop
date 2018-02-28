@@ -7,7 +7,7 @@
 
         var chargingStatusImage = document.getElementById('chargingStatusImage');
     
-        if(doc.data()["Wi-Fi"] != '<unknown ssid>'){
+        if(doc.data()["Wi-Fi"] != '<unknown ssid>' && doc.data()["Wi-Fi"] != "0x"){
             document.getElementById('WiFiStatus').innerHTML = "Status: Connected - " + doc.data()["Wi-Fi"];
         }
         else{
