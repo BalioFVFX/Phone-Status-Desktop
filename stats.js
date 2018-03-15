@@ -8,10 +8,10 @@
         var chargingStatusImage = document.getElementById('chargingStatusImage');
     
         if(doc.data()["Wi-Fi"] != '<unknown ssid>' && doc.data()["Wi-Fi"] != "0x"){
-            document.getElementById('WiFiStatus').innerHTML = "WiFi Status: Connected - " + doc.data()["Wi-Fi"];
+            document.getElementById('WiFiStatus').innerHTML = "Wi-Fi Status: Connected - " + doc.data()["Wi-Fi"];
         }
         else{
-            document.getElementById('WiFiStatus').innerHTML = "WiFi Status: Disconnected";
+            document.getElementById('WiFiStatus').innerHTML = "Wi-Fi Status: Disconnected";
         }
   
         
