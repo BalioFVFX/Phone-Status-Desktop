@@ -1,19 +1,33 @@
+const electron = require('electron')
+const path = require('path')
+let lowBattery = false;
+let batteryLevelVar = 0;
+
+
+const notification = {
+  title: 'Test',
+  body:'text'
+}
+
 firebase.auth().onAuthStateChanged(function(user) {
   if (user) {
-    var starCountRef = firebase.database().ref('users/' + user.uid + "/");
 
     db.collection("users").doc(user.uid)
     .onSnapshot(function(doc) {
         console.log("Current data: ", doc.data());
 
-   
-
 
       var chargingStatusImage = document.getElementById('chargingStatusImage');
-  
-     
+
+      if(doc.data()["Battery level"].toFixed(0) == 15 && doc.data()["Battery level"].toFixed(0) != batteryLevelVar && doc.data()["Is charging"] == false){
+        console.log("LOW Battery");
+        lowBattery = true;
+      }
+
+
       if(document.getElementById('batteryLevel') != null){
-        document.getElementById('batteryLevel').innerHTML = "Battery Level: " + doc.data()["Battery level"] + "%";
+        document.getElementById('batteryLevel').innerHTML = "Battery Level: " + doc.data()["Battery level"].toFixed(0) + "%";
+        batteryLevelVar = doc.data()["Battery level"].toFixed(0);
         if(doc.data()["Is charging"] == true){
           if(doc.data()["AC charge"] == true){
               document.getElementById('isCharging').innerHTML = "Battery Status: Charging - Ac Charger"
