@@ -6,6 +6,9 @@ firebase.auth().onAuthStateChanged(function(user) {
 
     db.collection("users").doc(user.uid).collection("level").doc("l")
     .onSnapshot(function(doc) {
+      if(doc.data()['Battery level'].toFixed(0) == 15 && doc.data()['Is charging'] == false){
+        console.log('low battery');
+      }
       document.getElementById('batteryLevel').innerHTML = "Battery Level: " + doc.data()['Battery level'].toFixed(0) + "%";
     });
 
