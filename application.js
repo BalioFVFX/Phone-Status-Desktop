@@ -1,6 +1,6 @@
 let lowBattery = false;
 let batteryLevelVar = 0;
-
+var audio = new Audio('lowbattery.wav');
 firebase.auth().onAuthStateChanged(function(user) {
   if (user) {
 
@@ -8,6 +8,7 @@ firebase.auth().onAuthStateChanged(function(user) {
     .onSnapshot(function(doc) {
       if(doc.data()['Battery level'].toFixed(0) == 15 && doc.data()['Is charging'] == false){
         console.log('low battery');
+        audio.play();
       }
       document.getElementById('batteryLevel').innerHTML = "Battery Level: " + doc.data()['Battery level'].toFixed(0) + "%";
     });
