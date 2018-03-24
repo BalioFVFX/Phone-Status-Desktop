@@ -1,16 +1,38 @@
 let lowBattery = false;
-let batteryLevelVar = 0;
+let lowBatteryUpdate = false;
 var audio = new Audio('lowbattery.wav');
 firebase.auth().onAuthStateChanged(function(user) {
   if (user) {
 
     db.collection("users").doc(user.uid).collection("level").doc("l")
     .onSnapshot(function(doc) {
-      if(doc.data()['Battery level'].toFixed(0) == 15 && doc.data()['Is charging'] == false){
-        console.log('low battery');
-        audio.play();
-      }
+
       document.getElementById('batteryLevel').innerHTML = "Battery Level: " + doc.data()['Battery level'].toFixed(0) + "%";
+
+      if(doc.data()['Battery level'].toFixed(0) <= 15 && doc.data()['Is charging'] == false){
+        console.log('low battery');
+
+
+        if(doc.data()['Battery level'].toFixed(0) == 15 && doc.data()['Is charging'] == false){
+          audio.play();
+        }
+      
+        document.getElementById('batteryLevel').style.color = '#ff0000';
+      }
+
+      else{
+
+        document.getElementById('batteryLevel').style.color = '#02e809';
+      
+      }
+     
+      if(doc.data()['Is charging'] == true){
+        document.getElementById('isCharging').style.color = '#ffffff';
+      }
+      else{
+        document.getElementById('isCharging').style.color = '#fc008e';
+      }
+      
     });
 
     db.collection("users").doc(user.uid)
